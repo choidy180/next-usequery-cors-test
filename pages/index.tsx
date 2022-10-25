@@ -2,8 +2,14 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import * as React from 'react';
 
 const Home: NextPage = () => {
+  React.useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
+  },[]);
   return (
     <div className={styles.container}>
       <Head>
